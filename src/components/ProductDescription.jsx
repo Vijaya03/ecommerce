@@ -1,6 +1,6 @@
 import React, { Component,useState,useContext } from 'react';
 import styled from 'styled-components';
-import minus from '../images/icon-minus.svg';
+import MinusButton from '../images/icon-minus.svg';
 import plus from '../images/icon-plus.svg';
 import cart from '../images/icon-cart.svg';
 import { UserContext } from './Home';
@@ -89,7 +89,8 @@ const AddProduct = styled.div`
 const NumOfProduct = styled.div`
     display:flex;
     flex-direction:row;
-    gap:35px;
+    justify-content:center;
+    gap:25px;
     align-items:center;
     background:var(--Lightgrayishblue);
     border-radius:5px;
@@ -109,9 +110,9 @@ const Plus = styled.img`
     cursor:pointer;
 `;
 const Minus = styled.img`
-    height:3px;
-    padding-left:10px;
+    width:20px;
     cursor:pointer;
+    padding:6px;
     `;
 const AddCartButton = styled.button`
    width:100%;
@@ -156,7 +157,7 @@ const ProductDescription = () =>{
         </PriceSection>
         <AddProduct>
             <NumOfProduct>
-                    <Minus src={minus} onClick={()=>setCounter(counter--)} alt="minus"/>{counter}
+                    <Minus src={MinusButton} onClick={()=>{if(counter=>0) {setCounter(counter--)}}} alt="minus"/>{counter}
                     <Plus src={plus}  onClick={()=>setCounter(counter++)} alt="plus"/>
             </NumOfProduct>
             <AddCartButton onClick={()=>user.setProductNumber(counter)}><Cart src={cart} alt="cartlogo"/>Add to cart</AddCartButton>

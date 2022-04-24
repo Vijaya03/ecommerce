@@ -53,9 +53,6 @@ const Menu = styled.div`
     flex-flow: wrap;
     height: 100%;
     @media only screen and (max-width: 500px){
-        &[data-visible="true"]{
-            transform:translateX(-100%);
-        }
         flex-direction: column;
         top: 0;
         bottom: 0;
@@ -72,6 +69,9 @@ const Menu = styled.div`
         font-weight:700;
         color:var(--Black);
         padding:20px;
+        &[data-visible="false"]{
+            transform:translateX(-100%);
+        }
     }
 `;
 const Li = styled.span`
@@ -134,7 +134,7 @@ const OverLayStyle = styled.div`
     display:none;
     @media only screen and (max-width: 500px){
         display:block;
-        &[data-visible="true"]{
+        &[data-visible="false"]{
             transform:translateX(-100%);
         }
     }
