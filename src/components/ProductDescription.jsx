@@ -11,6 +11,7 @@ const Product = styled.div`
     @media only screen and (max-width: 500px){
         padding-left:20px;
         padding-right:20px;
+        padding-bottom: 0;
     }
 `
 const ProductHeader = styled.div`
