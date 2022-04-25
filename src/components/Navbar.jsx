@@ -173,7 +173,7 @@ const NavBar = (props) =>{
                 <Li>Contact</Li>
             </Menu>
             <Container>
-                <Badge>{user.productNumber}</Badge>
+                <Badge onClick={()=>props.setShowcart(!props.showCart)}>{user.productNumber}</Badge>
                 <Cart  src={cart} onClick={()=>props.setShowcart(!props.showCart)}></Cart>
                 <ProfilePic src={Avatar}></ProfilePic>
             </Container>
