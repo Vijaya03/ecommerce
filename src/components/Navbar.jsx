@@ -160,7 +160,7 @@ const NavBar = (props) =>{
     return (
         <Nav>
             <Ham area-controls="menu" area-expanded={toggle} onClick={()=>setToggle(!toggle)}><svg width="16" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z" fill="#69707D" fill-rule="evenodd"/></svg></Ham>
-            <Logo src={logo}></Logo>
+            <Logo src={logo} alt="logo"></Logo>
             <OverLayStyle id="menu" data-visible={toggle}></OverLayStyle>
             <Menu id="menu" data-visible={toggle}>
                 <Cross onClick={()=>setToggle(!toggle)}>
@@ -174,8 +174,8 @@ const NavBar = (props) =>{
             </Menu>
             <Container>
                 <Badge onClick={()=>props.setShowcart(!props.showCart)}>{user.productNumber}</Badge>
-                <Cart  src={cart} onClick={()=>props.setShowcart(!props.showCart)}></Cart>
-                <ProfilePic src={Avatar}></ProfilePic>
+                <Cart  src={cart} onClick={()=>props.setShowcart(!props.showCart)} alt="cart-logo"></Cart>
+                <ProfilePic src={Avatar} alt="avatar"></ProfilePic>
             </Container>
         </Nav>
 )
