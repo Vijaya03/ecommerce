@@ -13,6 +13,7 @@ const CardHeader = styled.div`
     display:flex;
     align-items:center;
     padding-left:15px;
+    
 `;
 const CardContent = styled.div`
     width:100%;
@@ -73,11 +74,12 @@ const CardModal = (props) =>{
         background:var(--White);
         border-radius:5px;
         @media only screen and (max-width: 500px){
-            right:0;
-            left:0;
-            top:55px;
-            z-index:10;
-            width:calc(100%);
+                left:50%;
+                transform:translate(-50%,-50%);
+                top:10rem;
+                z-index:10;
+                justify-content:center;
+                width:calc(100% - 30px);
                 marign-left:20px;
                 marign-right:20px;
             }

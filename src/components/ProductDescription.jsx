@@ -134,7 +134,7 @@ const AddCartButton = styled.button`
     opacity:50%;
    }
    @media only screen and (max-width: 500px){
-        height:35px;
+        height:45px;
         margin-bottom:10px;
     }
 `;
@@ -158,10 +158,10 @@ const ProductDescription = () =>{
         </PriceSection>
         <AddProduct>
             <NumOfProduct>
-                    <Minus src={MinusButton} onClick={()=>{if(counter=>0) {setCounter(counter--)}}} alt="minus"/>{counter}
-                    <Plus src={plus}  onClick={()=>setCounter(counter++)} alt="plus"/>
+                    <Minus src={MinusButton} onClick={(e)=>{e.stopImmediatePropagation();if(counter=>0) {setCounter(--counter)}}} alt="minus"/>{counter}
+                    <Plus src={plus}  onClick={()=>setCounter(++counter)} alt="plus"/>
             </NumOfProduct>
-            <AddCartButton onClick={()=>user.setProductNumber(counter)}><Cart src={cart} alt="cartlogo"/>Add to cart</AddCartButton>
+            <AddCartButton onClick={()=>{e.stopImmediatePropagation();user.setProductNumber(counter)}}><Cart src={cart} alt="cartlogo"/>Add to cart</AddCartButton>
         </AddProduct>
     </Product>
     )
