@@ -101,7 +101,7 @@ const NumOfProduct = styled.div`
     font-size:12px;
     @media only screen and (max-width: 500px){
         width:100%;
-        gap:40%;
+        gap:35%;
     }
 `
 const Plus = styled.img`
@@ -109,11 +109,18 @@ const Plus = styled.img`
     height:12px;
     padding:2px;
     cursor:pointer;
+    @media only screen and (max-width: 500px){
+        width:18px;
+        height:18px;
+    }
 `;
 const Minus = styled.img`
     width:20px;
     cursor:pointer;
     padding:6px;
+    @media only screen and (max-width: 500px){
+        width:27px;
+    }
     `;
 const AddCartButton = styled.button`
    width:100%;
@@ -158,10 +165,10 @@ const ProductDescription = () =>{
         </PriceSection>
         <AddProduct>
             <NumOfProduct>
-                    <Minus src={MinusButton} onClick={(e)=>{e.stopImmediatePropagation();if(counter=>0) {setCounter(--counter)}}} alt="minus"/>{counter}
+                    <Minus src={MinusButton} onClick={()=>{if(counter=>0) {setCounter(--counter)}}} alt="minus"/>{counter}
                     <Plus src={plus}  onClick={()=>setCounter(++counter)} alt="plus"/>
             </NumOfProduct>
-            <AddCartButton onClick={()=>{e.stopImmediatePropagation();user.setProductNumber(counter)}}><Cart src={cart} alt="cartlogo"/>Add to cart</AddCartButton>
+            <AddCartButton onClick={(e)=>{user.setProductNumber(counter)}}><Cart src={cart} alt="cartlogo"/>Add to cart</AddCartButton>
         </AddProduct>
     </Product>
     )

@@ -32,8 +32,13 @@ const CartProduct = styled.div`
     grid-template-columns: 20% 70% 10%;
     row-gap:10px;
     padding:20px;
+    
     grid-template-areas:"shoe text dele"
-                        "che che che"
+                        "che che che";
+
+    @media only screen and (max-width: 500px){
+    column-gap:5px;
+    }
 `;
 const ProductImg = styled.img`
     grid-area:shoe;
@@ -46,11 +51,14 @@ const ProductDetails = styled.div`
     
 `;
 const DeleteProduct = styled.img`
-    grid-area:dele;
     align-self:center;
     width:10px;
     height:14px;
     cursor:pointer;
+    @media only screen and (max-width: 500px){
+        width:15px;
+        height:20px;
+    }
 `;
 const CheckoutButton = styled.button`
     grid-area:che;
@@ -97,7 +105,12 @@ const CardModal = (props) =>{
                      Fall Limited Edition Sneakers $125.00 X {user.productNumber} &nbsp;
                      <span style={{fontWeight:"700",color:"black"}}>${updatedPrice}.00</span>
                     </ProductDetails>
-                    <DeleteProduct src={delet} onClick={()=>user.setProductNumber(user.productNumber--)}alt="delete"/>
+                    <div style={{gridArea:"dele",
+                                display:"flex",
+                                justifyContent:"flex-end",
+                                alignItems:"center"}}>
+                        <DeleteProduct src={delet} onClick={()=>user.setProductNumber(user.productNumber--)}alt="delete"/>
+                    </div>
                     <CheckoutButton>Checkout</CheckoutButton>
                 </CartProduct>
             </CardContent>
